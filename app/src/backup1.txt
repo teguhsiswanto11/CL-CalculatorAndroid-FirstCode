@@ -1,0 +1,157 @@
+package com.teguhsiswanto.id.kotlin_firstcode
+
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+
+
+class MainActivity : AppCompatActivity() {
+
+    var str = ""
+    var operator: Char? = 'q'
+
+//    var i: Float = 0.toFloat()
+    var num:Float = 0.toFloat()
+    var numtemp:Float = 0.toFloat()
+
+    var showResult: TextView? = null
+    var showResult2: TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        showResult = findViewById(R.id.textLayer) as TextView
+        showResult2 = findViewById(R.id.textLayer2) as TextView
+
+    }
+
+    fun btn0Clicked(v: View) {
+        insert(0)
+    }
+
+    fun btn1Clicked(v: View) {
+        insert(1)
+    }
+
+    fun btn2Clicked(v: View) {
+        insert(2)
+    }
+
+    fun btn3Clicked(v: View) {
+        insert(3)
+    }
+
+    fun btn4Clicked(v: View) {
+        insert(4)
+    }
+
+    fun btn5Clicked(v: View) {
+        insert(5)
+    }
+
+    fun btn6Clicked(v: View) {
+        insert(6)
+    }
+
+    fun btn7Clicked(v: View) {
+        insert(7)
+    }
+
+    fun btn8Clicked(v: View) {
+        insert(8)
+    }
+
+    fun btn9Clicked(v: View) {
+        insert(9)
+    }
+
+//    fun btnDotClicked(v: View) {
+//        insert(".")
+//    }
+
+    fun btnPlusClicked(v: View) {
+        perform()
+        operator = '+'
+
+    }
+
+    fun btnMinusClicked(v: View) {
+        perform()
+        operator = '-'
+
+    }
+
+    fun btnDivideClicked(v: View) {
+        perform()
+        operator = '/'
+
+    }
+
+    fun btnMultiplicationClicked(v: View) {
+        perform()
+        operator = '*'
+
+    }
+
+    fun btnEqualClicked(v: View) {
+        calculate()
+    }
+
+    fun btnDelClicked(v: View) {
+        reset()
+    }
+
+    private fun reset() {
+        // TODO Auto-generated method stub
+        str = ""
+        operator = 'q'
+        num = 0f
+        numtemp = 0f
+        showResult!!.setText("")
+        showResult2!!.setText("")
+    }
+
+    private fun perform() {
+        // TODO Auto-generated method stub
+        str = ""
+        calculateNoShow()
+        numtemp = num
+
+    }
+
+    private fun insert(j: Int) {
+        // TODO Auto-generated method stub
+        str = str + Integer.toString(j)
+        num = Integer.valueOf(str).toFloat()
+        showResult!!.setText(str)
+
+    }
+
+    private fun calculate() {
+        // TODO Auto-generated method stub
+        if (operator === '+')
+            num = numtemp + num
+        else if (operator === '-')
+            num = numtemp - num
+        else if (operator === '/')
+            num = numtemp / num
+        else if (operator === '*')
+            num = numtemp * num
+        showResult2!!.setText("" + num)
+    }
+
+    private fun calculateNoShow() {
+        // TODO Auto-generated method stub
+        if (operator === '+')
+            num = numtemp + num
+        else if (operator === '-')
+            num = numtemp - num
+        else if (operator === '/')
+            num = numtemp / num
+        else if (operator === '*')
+            num = numtemp * num
+    }
+
+}
